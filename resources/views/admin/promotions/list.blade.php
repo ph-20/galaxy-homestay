@@ -17,8 +17,11 @@
                     <thead>
                     <tr align="center">
                         <th>ID</th>
+                        <th>Tên Chương Trình</th>
                         <th>Mức Độ Giảm</th>
                         <th>Loại Phòng Áp Dụng</th>
+                        <th>Ngày Bắt Đầu</th>
+                        <th>Ngày Kết Thúc</th>
                         <th>Xóa</th>
                         <th>Sửa</th>
                     </tr>
@@ -27,8 +30,11 @@
                     @foreach($promotion as $list)
                         <tr class="even gradeC" align="center">
                             <td>{{$list->id}}</td>
-                            <td>{{$list->price}} %</td>
-                            <td>{{$list->kindrooms->name}}</td>
+                            <td>{{$list->name}}</td>
+                            <td>{{$list->discount}} %</td>
+                            <td>{{$list->room_types->name}}</td>
+                            <td>{{$list->start_date}}</td>
+                            <td>{{$list->end_date }}</td>
                             <td class="center">
                                 <form action="{{route('promotion.destroy',$list->id)}}" method="POST">
                                     {{csrf_field()}}
