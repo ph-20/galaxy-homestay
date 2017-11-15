@@ -12,4 +12,7 @@ class Service extends Model
     {
         return $this->belongsToMany('App\BookingRoom', 'booking_rooms', 'service_id', 'book_room_id');
     }
+    public function bookingRoomServices(){
+        return $this->hasMany('App\BookingRoomService','service_id','id');
+    }
 }

@@ -23,8 +23,8 @@ class CreateBookingsTable extends Migration
             $table->integer('total');
             $table->date('from_date');
             $table->date('to_date');
-            $table->timestamp('check-in')->nullable();
-            $table->timestamp('check-out')->nullable();
+            $table->timestamp('check_in')->nullable();
+            $table->timestamp('check_out')->nullable();
             $table->integer('protect_code');
             $table->integer('status');
             $table->timestamps();
