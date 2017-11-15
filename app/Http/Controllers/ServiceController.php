@@ -34,6 +34,7 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(ServiceRequest $request)
     {
         $service = new Service();
@@ -43,8 +44,8 @@ class ServiceController extends Controller
         $service->status = $request->rdoStatus;
         $service->save();
         return redirect()->back()->withSuccess('Thêm Dịch Vụ Thành Công');
-    
     }
+    
     
     /**
      * Display the specified resource.
@@ -52,10 +53,10 @@ class ServiceController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+//    public function show($id)
+//    {
+//        //
+//    }
     
     /**
      * Show the form for editing the specified resource.
@@ -63,11 +64,13 @@ class ServiceController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
+    
     public function edit($id)
     {
         $service = Service::findOrFail($id);
-        return view('admin.services.edit',compact('service'));
+        return view('admin.services.edit', compact('service'));
     }
+    
     
     /**
      * Update the specified resource in storage.
@@ -76,6 +79,7 @@ class ServiceController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
+    
     public function update(ServiceRequest $request, $id)
     {
         $service = Service::findOrFail($id);
@@ -87,12 +91,14 @@ class ServiceController extends Controller
         return redirect()->back()->withSuccess('Sửa Dịch Vụ Thành Công');
     }
     
+    
     /**
      * Remove the specified resource from storage.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
+    
     public function destroy($id)
     {
         $service = Service::findOrFail($id);
@@ -100,3 +106,4 @@ class ServiceController extends Controller
         return redirect()->back()->withSuccess('Xóa Dịch Vụ Thành Công');
     }
 }
+
