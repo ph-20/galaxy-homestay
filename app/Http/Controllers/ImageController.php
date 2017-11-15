@@ -44,7 +44,7 @@ class ImageController extends Controller
             if ($tail == 'jpg' || $tail == 'png' || $tail == 'jpeg') {
                 $name = $fileImage->getClientOriginalName();
                 $image = str_random(4) . '_' . $name;
-                while(file_exists(asset('images' . '_' . $image))) {
+                while (file_exists(asset('images' . '_' . $image))) {
                     $image = str_random(4) . '_' . $name;
                 }
                 $fileImage->move('images', $image);
@@ -97,7 +97,7 @@ class ImageController extends Controller
             if ($tail == 'jpg' || $tail == 'png' || $tail == 'jpeg') {
                 $name = $fileImage->getClientOriginalName();
                 $image = str_random(4) . '_' . $name;
-                while(file_exists(asset('images' . '_' . $image))) {
+                while (file_exists(asset('images' . '_' . $image))) {
                     $image = str_random(4) . '_' . $name;
                 }
                 $fileImage->move('images', $image);
