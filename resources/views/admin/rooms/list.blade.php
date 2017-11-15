@@ -31,7 +31,7 @@
                         <tr class="odd gradeX" align="center">
                             <td>{{$list->id}}</td>
                             <td>{{$list->room_code}}
-                                <img class="img-thumbnail" src="{{asset('images/'.$list->thumbnail)}}" ></td>
+                                <img width="500px" class="img-thumbnail" src="{{asset('images/'.$list->thumbnail)}}" ></td>
                             <td>{{$list->roomTypes->name}}</td>
                             <td>{{ number_format($list->roomTypes->price),0,"."."," }} Vnđ</td>
                             <td>{{$list->description}}</td>
