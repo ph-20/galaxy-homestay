@@ -104,12 +104,6 @@ class UserController extends Controller
         return redirect()->back()->withSuccess('Sửa Nhân Viên Thành Công');
     }
     
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $user = User::findOrFail($id);
