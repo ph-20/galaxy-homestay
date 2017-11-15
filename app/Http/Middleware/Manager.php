@@ -19,10 +19,10 @@ class Manager
         if (Auth::user()->role == 2 && Auth::user()->active == 1) {
             return $next($request);
         } else {
-            if(Auth::user()->role == 1) {
+            if (Auth::user()->role == 1) {
                 return redirect('admin/user')->withErrors('Hệ Thống Tự Động Chuyển Bạn Về Trang Với Quyền
                  Quản Lý Tương Ứng');
-            } elseif(Auth::user()->role == 3) {
+            } elseif (Auth::user()->role == 3) {
                 return redirect('admin/booking')->withErrors('Hệ Thống Tự Động Chuyển Bạn Về Trang Với Quyền
                  Quản Lý Tương Ứng');
             }

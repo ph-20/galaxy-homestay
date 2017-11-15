@@ -23,19 +23,20 @@ class RoomRequest extends FormRequest
      */
     public function rules()
     {
-        if ($this->method() == 'POST'){
+        if ($this->method() == 'POST') {
             return [
                 'txtName'=>'required',
                 'txtDescription'=>'required',
                 'fImage'=>'required'
             ];
-        } elseif($this->method() == 'PUT'){
+        } elseif ($this->method() == 'PUT') {
             return [
                 'txtName'=>'required',
                 'txtDescription'=>'required'
             ];
         }
     }
+    
     public function messages(){
         return[
             'txtName.required'=>'Chưa Nhập Mã Số Phòng',

@@ -22,7 +22,7 @@ class Admin
             if (Auth::user()->role == 2) {
                 return redirect('admin/roomtype')->withErrors('Hệ Thống Tự Động Chuyển Bạn Về Trang Với
                 Quyền Quản Lý Tương Ứng');
-            } elseif(Auth::user()->role == 3) {
+            } elseif (Auth::user()->role == 3) {
                 return redirect('admin/booking')->withErrors('Hệ Thống Tự Động Chuyển Bạn Về Trang Với Quyền
                  Quản Lý Tương Ứng');
             }

@@ -24,7 +24,7 @@ class PageController extends Controller
             } elseif (Auth::user()->role == 3) {
                 return redirect('admin/booking')->withSuccess('Đăng Nhập Thành Công Với Quyền Sale');
             }
-        }else {
+        } else {
             return redirect()->back()->withErrors('Sai Địa Chỉ Mail Hoặc Mật Khẩu');
         }
     }
