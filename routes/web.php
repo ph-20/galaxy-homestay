@@ -10,9 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Booking;
 Route::get('/', function () {
-     return view('welcome');
+    return view('welcome');
 });
 
 Auth::routes();
