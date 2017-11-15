@@ -88,7 +88,17 @@ class UserController extends Controller
         }
         $user->email = $request->txtEmail;
         if ($request->checkChangePassword == 'on') {
-            $this->validate($request, ['txtPassword' => 'required', 'txtRePassword' => 'required|same:txtPassword'], ['txtPassword.required' => 'Chưa Nhập Mật Khẩu', 'txtRePassword.required' => 'Chưa Lại Mật Khẩu', 'txtRePassword.same' => 'Mật Khẩu Nhập Lại Không Khớp Với Mật Khẩu Ban Đầu']);
+            $this->validate( $request,
+                [
+                    'txtPassword' => 'required',
+                    'txtRePassword' => 'required|same:txtPassword'
+                ],
+                [
+                    'txtPassword.required' => 'Chưa Nhập Mật Khẩu',
+                    'txtRePassword.required' => 'Chưa Lại Mật Khẩu',
+                    'txtRePassword.same' => 'Mật Khẩu Nhập Lại Không Khớp Với Mật Khẩu Ban Đầu'
+                ]
+            );
             $user->password = bcrypt($request->txtRePassword);
         };
         $user->role = $request->sleRole;
