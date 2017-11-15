@@ -46,7 +46,6 @@ class UserController extends Controller
         $user->active = $request->rdoActive;
         $user->save();
         return redirect()->back()->withSuccess('Tạo Nhân Viên Thành Công');
-        
     }
     
     /**
@@ -83,18 +82,13 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->name = $request->txtName;
-        if($request->txtEmail != $user->email){
-            $this->validate($request,
-                [
-                    'txtEmail' => 'unique:users,email'
-                ], [
-                    'txtEmail.unique' => 'Địa Chỉ Email Đã Tồn Tại'
-                ]);
+        if ($request->txtEmail != $user->email) {
+            $this->validate($request, ['txtEmail' => 'unique:users,email'], ['txtEmail.unique' => 'Địa Chỉ Email Đã Tồn
+            Tại']);
         }
         $user->email = $request->txtEmail;
-        if($request->checkChangePassword == 'on') {
-            $this->validate($request,
-                [
+        if ($request->checkChangePassword == 'on') {
+            $this->validate($request, [
                     'txtPassword' => 'required',
                     'txtRePassword' => 'required|same:txtPassword'
                 ], [

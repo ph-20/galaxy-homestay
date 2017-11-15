@@ -41,28 +41,27 @@ class RoomController extends Controller
     public function store(RoomRequest $request)
     {
         $room = new Room();
-        if($request->hasFile('fImage')) {
+        if ($request->hasFile('fImage')) {
             $fileImage = $request->fImage;
             $tail = $fileImage->getClientOriginalExtension();
-            if($tail == 'jpg' || $tail == 'png' || $tail == 'jpeg') {
+            if ($tail == 'jpg' || $tail == 'png' || $tail == 'jpeg') {
                 $name = $fileImage->getClientOriginalName();
                 $image = str_random(4) . '_' . $name;
-                while(file_exists(asset('images/' . '_' . $image))) {
+                while (file_exists(asset('images/' . '_' . $image))) {
                     $image = str_random(4) . '_' . $name;
                 }
                 $fileImage->move('images/', $image);
                 $room->thumbnail = $image;
-            }else {
+            } else {
                 return redirect()->back()->withErrors('File Hình Ảnh Chỉ Được ở Dạng : jpg,png,jpeg');
             }
-            $room->room_code = $request->txtName;
-            $room->description = $request->txtDescription;
-            $room->room_type_id = $request->idKindRoom;
-            $room->status = $request->rdoStatus;
-            $room->save();
-            return redirect()->back()->withSuccess('Thêm Thành Công');
         }
-        
+        $room->room_code = $request->txtName;
+        $room->description = $request->txtDescription;
+        $room->room_type_id = $request->idKindRoom;
+        $room->status = $request->rdoStatus;
+        $room->save();
+        return redirect()->back()->withSuccess('Thêm Thành Công');
     }
     
     /**
@@ -103,21 +102,21 @@ class RoomController extends Controller
     {
         
         $room = Room::findOrFail($id);
-        if($request->hasFile('fImage')) {
+        if ($request->hasFile('fImage')) {
             $fileImage = $request->fImage;
             $tail = $fileImage->getClientOriginalExtension();
-            if($tail == 'jpg' || $tail == 'png' || $tail == 'jpeg') {
+            if ($tail == 'jpg' || $tail == 'png' || $tail == 'jpeg') {
                 $name = $fileImage->getClientOriginalName();
                 $image = str_random(4) . '_' . $name;
-                while(file_exists(asset('images' . '_' . $image))) {
+                while (file_exists(asset('images' . '_' . $image))) {
                     $image = str_random(4) . '_' . $name;
                 }
                 $fileImage->move('images', $image);
                 $room->thumbnail = $image;
-            }else {
+            } else {
                 return redirect()->back()->withErrors('File Hình Ảnh Chỉ Được ở Dạng : jpg,png,jpeg');
             }
-        }else {
+        } else {
             $room->thumbnail = $room->thumbnail;
         }
         $room->room_code = $request->txtName;
@@ -126,8 +125,6 @@ class RoomController extends Controller
         $room->status = $request->rdoStatus;
         $room->update();
         return redirect()->back()->withSuccess('Sửa Thành Công');
-        
-        
     }
     
     /**
@@ -139,9 +136,9 @@ class RoomController extends Controller
     public function destroy($id)
     {
         $room = Room::findOrFail($id);
-        if($room->status == 2 || $room->status == 3) {
+        if ($room->status == 2 || $room->status == 3) {
             return redirect()->back()->withErrors('Không Thể Xóa Phòng Đã Đặt Hoặc Đang Sử Dụng');
-        }else {
+        } else {
             File::delete('images/' . $room->thumbnail);
             $room->delete();
             return redirect()->back()->withSuccess('Xóa Phòng Thành Công');

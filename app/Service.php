@@ -8,7 +8,7 @@ class Service extends Model
 {
     protected $table = 'services';
     
-    public function booking_rooms()
+    public function bookingRooms()
     {
         return $this->belongsToMany('App\BookingRoom', 'booking_rooms', 'service_id', 'book_room_id');
     }

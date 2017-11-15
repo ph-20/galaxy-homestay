@@ -32,8 +32,8 @@
                             <td>{{$list->id}}</td>
                             <td>{{$list->room_code}}
                                 <img class="img-thumbnail" src="{{asset('images/'.$list->thumbnail)}}" ></td>
-                            <td>{{$list->room_types->name}}</td>
-                            <td>{{ number_format($list->room_types->price),0,"."."," }} Vnđ</td>
+                            <td>{{$list->roomTypes->name}}</td>
+                            <td>{{ number_format($list->roomTypes->price),0,"."."," }} Vnđ</td>
                             <td>{{$list->description}}</td>
                             <td>
                                 @if($list->status==1)

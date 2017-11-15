@@ -6,12 +6,11 @@ use Illuminate\Http\Request;
 
 class StatisticController extends Controller
 {
-    public function getStatisticRevenue(){
-    
+    public function getStatisticRevenue()
+    {
     }
     
     public function getStatisticRoom()
     {
-    
     }
 }
