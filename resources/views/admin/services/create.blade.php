@@ -18,22 +18,22 @@
                         {{csrf_field()}}
                         <div class="form-group">
                             <label>Tên :</label>
-                            <input class="form-control" name="txtName" value="{{old('txtName')}}"/>
+                            <input class="form-control" name="txtName" value="{{old('txtName')}}" placeholder="Nhập Tên Dịch Vụ"/>
                         </div>
                         <div class="form-group">
                             <label>Giá :</label>
-                            <input type="number" class="form-control" name="txtPrice" value="{{old('txtPrice')}}"/>
+                            <input type="number" class="form-control" name="txtPrice" value="{{old('txtPrice')}}" placeholder="Nhập Giá Dịch Vụ"/>
                         </div>
                         <div class="form-group">
                             <label>Mô Tả :</label>
-                            <textarea class="form-control" rows="3" name="txtDescription"></textarea>
+                            <textarea class="form-control" rows="3" name="txtDescription" placeholder="Nhập Mô Tả">{{old('txtDescription')}}</textarea>
                         </div>
                         <div class="form-group">
                             <div class="form-control">
-                                <label class="label-inline">
-                                    <input type="radio" name="rdoStatus" value="1"> Đang Hoạt Động
+                                <label class="radio-inline">
+                                    <input type="radio" name="rdoStatus" checked value="1"> Đang Hoạt Động
                                 </label>
-                                <label class="label-inline">
+                                <label class="radio-inline">
                                     <input type="radio" name="rdoStatus" value="2"> Bảo Trì
                                 </label>
                             </div>

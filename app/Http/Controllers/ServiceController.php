@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ServiceRequest;
 use App\Service;
 
 
@@ -34,9 +35,16 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ServiceRequest $request)
     {
-        //
+        $service = new Service();
+        $service->name = $request->txtName;
+        $service->price = $request->txtPrice;
+        $service->description = $request->txtDescription;
+        $service->status = $request->rdoStatus;
+        $service->save();
+        return redirect()->back()->withSuccess('Thêm Dịch Vụ Thành Công');
+    
     }
 
     /**
@@ -58,7 +66,8 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $service = Service::findOrFail($id);
+        return view('admin.services.edit',compact('service'));
     }
 
     /**
@@ -68,9 +77,15 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ServiceRequest $request, $id)
     {
-        //
+        $service = Service::findOrFail($id);
+        $service->name = $request->txtName;
+        $service->price = $request->txtPrice;
+        $service->description = $request->txtDescription;
+        $service->status = $request->rdoStatus;
+        $service->update();
+        return redirect()->back()->withSuccess('Sửa Dịch Vụ Thành Công');
     }
 
     /**
@@ -81,6 +96,8 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $service = Service::findOrFail($id);
+        $service->delete();
+        return redirect()->back()->withSuccess('Xóa Dịch Vụ Thành Công');
     }
 }
