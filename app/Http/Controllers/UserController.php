@@ -83,6 +83,14 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->name = $request->txtName;
+        if($request->txtEmail != $user->email){
+            $this->validate($request,
+                [
+                    'txtEmail' => 'unique:users,email'
+                ], [
+                    'txtEmail.unique' => 'Địa Chỉ Email Đã Tồn Tại'
+                ]);
+        }
         $user->email = $request->txtEmail;
         if($request->checkChangePassword == 'on') {
             $this->validate($request,
