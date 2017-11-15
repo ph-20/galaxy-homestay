@@ -17,7 +17,7 @@ class RoomTypeController extends Controller
     public function index()
     {
         $roomType = RoomType::all();
-        return view('admin.roomtypes.list',compact('roomType'));
+        return view('admin.roomtypes.list', compact('roomType'));
     }
     
     /**
@@ -33,24 +33,24 @@ class RoomTypeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(RoomTypeRequest $request)
     {
         $roomType = new RoomType();
-        if($request->hasFile('fImage')) {
+        if ($request->hasFile('fImage')) {
             $fileImage = $request->fImage;
             $tail = $fileImage->getClientOriginalExtension();
-            if($tail == 'jpg' || $tail == 'png' || $tail == 'jpeg') {
+            if ($tail == 'jpg' || $tail == 'png' || $tail == 'jpeg') {
                 $name = $fileImage->getClientOriginalName();
                 $image = str_random(4) . '_' . $name;
-                while(file_exists(asset('images' . '_' . $image))) {
+                while (file_exists(asset('images' . '_' . $image))) {
                     $image = str_random(4) . '_' . $name;
                 }
                 $fileImage->move('images', $image);
                 $roomType->thumbnail = $image;
-            }else {
+            } else {
                 return redirect()->back()->withErrors('File Hình Ảnh Chỉ Được ở Dạng : jpg,png,jpeg');
             }
             $roomType->name = $request->txtName;
@@ -58,7 +58,6 @@ class RoomTypeController extends Controller
             $roomType->detail = $request->txtDetail;
             $roomType->description = $request->txtDescription;
             $roomType->save();
-            
         }
         //$roomType->save();
         return redirect()->back()->withSuccess('Thêm Loại Phòng Thành Công');
@@ -67,7 +66,7 @@ class RoomTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -78,38 +77,38 @@ class RoomTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $roomType = RoomType::findOrFail($id);
-        return view('admin.Roomtypes.edit',compact('roomType'));
+        return view('admin.Roomtypes.edit', compact('roomType'));
     }
     
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(RoomTypeRequest $request, $id)
     {
         $roomType = RoomType::findOrFail($id);
-        if($request->hasFile('fImage')) {
+        if ($request->hasFile('fImage')) {
             $fileImage = $request->fImage;
             $tail = $fileImage->getClientOriginalExtension();
-            if($tail == 'jpg' || $tail == 'png' || $tail == 'jpeg') {
+            if ($tail == 'jpg' || $tail == 'png' || $tail == 'jpeg') {
                 $name = $fileImage->getClientOriginalName();
                 $image = str_random(4) . '_' . $name;
-                while(file_exists(asset('images' . '_' . $image))) {
+                while (file_exists(asset('images' . '_' . $image))) {
                     $image = str_random(4) . '_' . $name;
                 }
                 $fileImage->move('images', $image);
-                File::delete('images/'.$roomType->thumbnail);
+                File::delete('images/' . $roomType->thumbnail);
                 $roomType->thumbnail = $image;
-            }else {
+            } else {
                 return redirect()->back()->withErrors('File Hình Ảnh Chỉ Được ở Dạng : jpg,png,jpeg');
             }
         }
@@ -125,13 +124,13 @@ class RoomTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $roomType = RoomType::findOrFail($id);
-        File::delete('images/'.$roomType->thumbnail);
+        File::delete('images/' . $roomType->thumbnail);
         $roomType->delete();
         return redirect()->back()->withSuccess('Xóa Loại Phòng Thành Công');
     }

@@ -23,20 +23,19 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        if($this->method()=='POST'){
+        if ($this->method()=='POST'){
             return [
                 'txtName'=>'required',
                 'txtEmail'=>'required|email|unique:users,email',
                 'txtPassword'=>'required',
                 'txtRePassword'=>'required|same:txtPassword'
             ];
-        }elseif($this->method()=='PUT'){
+        } elseif($this->method()=='PUT'){
             return [
                 'txtName'=>'required',
                 'txtEmail'=>'required|email'
             ];
         }
-       
     }
     public function messages()
     {
