@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ServiceRequest;
 use App\Service;
 
+
 class ServiceController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class ServiceController extends Controller
     public function index()
     {
         $service = Service::all();
-        return view('admin.services.list', compact('service'));
+        return view('admin.services.list',compact('service'));
     }
     
     /**
@@ -28,6 +29,12 @@ class ServiceController extends Controller
         return view('admin.services.create');
     }
     
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(ServiceRequest $request)
     {
         $service = new Service();
@@ -37,14 +44,39 @@ class ServiceController extends Controller
         $service->status = $request->rdoStatus;
         $service->save();
         return redirect()->back()->withSuccess('Thêm Dịch Vụ Thành Công');
+        
     }
     
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+//    public function show($id)
+//    {
+//        //
+//    }
+    
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
         $service = Service::findOrFail($id);
-        return view('admin.services.edit', compact('service'));
+        return view('admin.services.edit',compact('service'));
     }
     
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function update(ServiceRequest $request, $id)
     {
         $service = Service::findOrFail($id);
@@ -56,6 +88,12 @@ class ServiceController extends Controller
         return redirect()->back()->withSuccess('Sửa Dịch Vụ Thành Công');
     }
     
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
         $service = Service::findOrFail($id);
@@ -63,4 +101,3 @@ class ServiceController extends Controller
         return redirect()->back()->withSuccess('Xóa Dịch Vụ Thành Công');
     }
 }
-
