@@ -37,7 +37,8 @@ class RoomRequest extends FormRequest
         }
     }
     
-    public function messages(){
+    public function messages()
+    {
         return[
             'txtName.required'=>'Chưa Nhập Mã Số Phòng',
             'txtDescription.required'=>'Chưa Nhập Mô Tả Phòng',

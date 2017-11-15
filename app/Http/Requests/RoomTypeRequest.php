@@ -41,7 +41,8 @@ class RoomTypeRequest extends FormRequest
         }
     }
     
-    public function messages(){
+    public function messages()
+    {
         return[
             'txtName.required'=>'Chưa Nhập Tên Loại Phòng',
             'txtPrice.required'=>'Chưa Nhập Giá Phòng',
