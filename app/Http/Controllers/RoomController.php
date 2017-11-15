@@ -55,14 +55,13 @@ class RoomController extends Controller
             }else {
                 return redirect()->back()->withErrors('File Hình Ảnh Chỉ Được ở Dạng : jpg,png,jpeg');
             }
-            $room->room_code = $request->txtName;
-            $room->description = $request->txtDescription;
-            $room->room_type_id = $request->idKindRoom;
-            $room->status = $request->rdoStatus;
-            $room->save();
-            return redirect()->back()->withSuccess('Thêm Thành Công');
         }
-        
+        $room->room_code = $request->txtName;
+        $room->description = $request->txtDescription;
+        $room->room_type_id = $request->idKindRoom;
+        $room->status = $request->rdoStatus;
+        $room->save();
+        return redirect()->back()->withSuccess('Thêm Thành Công');
     }
     
     /**
@@ -126,7 +125,6 @@ class RoomController extends Controller
         $room->status = $request->rdoStatus;
         $room->update();
         return redirect()->back()->withSuccess('Sửa Thành Công');
-        
         
     }
     
