@@ -27,12 +27,14 @@
                     @foreach($image as $list)
                         <tr class="even gradeC" align="center">
                             <td>{{$list->id}}</td>
-                            <td><img width="400px" class="img-thumbnail" src="{{asset('image/'.$list->image)}}"></td>
+                            <td><img width="400px" class="img-thumbnail" src="{{asset('images/'.$list->image)}}"></td>
                             <td>
                                 @if($list->status == 1)
                                     Ảnh Slide
-                                @else
+                                @elseif($list->status == 2)
                                     Ảnh Chính
+                                @else
+                                    Ảnh Thumbnail
                                 @endif
                             </td>
                             
