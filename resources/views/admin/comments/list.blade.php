@@ -17,17 +17,30 @@
                     <thead>
                     <tr align="center">
                         <th>ID</th>
+                        <th>Tên</th>
+                        <th>Email</th>
                         <th>Nội Dung</th>
                         <th>Ngày Đánh Giá</th>
-                        
+                        <th>Xóa</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($comment as $list)
                     <tr class="odd gradeX" align="center">
                         <td>{{$list->id}}</td>
+                        <td>{{$list->name}}</td>
+                        <td>{{$list->email}}</td>
                         <td>{{$list->content}}</td>
                         <td>{{$list->created_at}}</td>
+                        <td class="center">
+                            <form action="{{route('comment.destroy',$list->id)}}" method="POST">
+                                {{csrf_field()}}
+                                {{method_field('DELETE')}}
+                                <button class="btn btn-danger" style="padding: 2px">
+                                    <i class="fa fa-trash-o  fa-fw"></i></button>
+                            </form>
+    
+                        </td>
                     </tr>
                     @endforeach
                     
