@@ -18,28 +18,28 @@
                         {{method_field('PUT')}}
                         <div class="form-group">
                             <label>Tên Chương Trình Khuyến Mãi :</label>
-                            <input type="text" class="form-control" name="txtName" value="{{old('txtName')}}" placeholder="Nhập Tên Chương Trình"/>
+                            <input type="text" class="form-control" name="txtName" value="{{$promotion->name}}"/>
                         </div>
                         <div class="form-group">
                             <label>Mức Độ Giảm (%) :</label>
-                            <input type="number" class="form-control" name="txtDiscount" value="{{old('txtDiscount')}}" placeholder="Nhập Mức Độ (%)"/>
+                            <input type="number" class="form-control" name="txtDiscount" value="{{$promotion->discount}}"/>
                         </div>
                         <div class="form-group">
                             <label>Loại Phòng Được Khuyến Mãi :</label>
                             <select class="form-control" name="sleRoomType">
                                 @foreach($roomType as $list)
-                                    <option value="{{$list->id}}">{{$list->name}}</option>
+                                    <option @if($list->id == $promotion->room_type_id) selected @endif value="{{$list->id}}">{{$list->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Ngày Bắt Đầu(YYYY/mm/dd) :</label>
-                            <input type="text" class="form-control" name="txtStartDate" value="{{old('txtStartDate')}}"/>
+                            <input type="text" class="form-control" name="txtStartDate" value="{{$promotion->start_date}}"/>
                         </div>
                         
                         <div class="form-group">
                             <label>Ngày Kết Thúc(YYYY/mm/dd) :</label>
-                            <input type="text" class="form-control" name="txtEndDate" value="{{old('txtEndDate')}}"/>
+                            <input type="text" class="form-control" name="txtEndDate" value="{{$promotion->end_date}}"/>
                         </div>
                         
                         <button type="submit" class="btn btn-default">Thêm Chương Trình Khuyến Mãi</button>

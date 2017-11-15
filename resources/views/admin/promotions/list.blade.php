@@ -32,7 +32,7 @@
                             <td>{{$list->id}}</td>
                             <td>{{$list->name}}</td>
                             <td>{{$list->discount}} %</td>
-                            <td>{{$list->room_types->name}}</td>
+                            <td>{{$list->roomTypes->name}}</td>
                             <td>{{$list->start_date}}</td>
                             <td>{{$list->end_date }}</td>
                             <td class="center">

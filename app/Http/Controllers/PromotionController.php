@@ -41,8 +41,9 @@ class PromotionController extends Controller
     {
         $promotion = new Promotion();
         $allPromtion = Promotion::all();
-        foreach($allPromtion as $list){
-            if($list->room_type_id == $request-> sleRoomType && $list->start_date <= $request->txtStartDate && $list->end_date >= $request->txtEndDate ){
+        foreach($allPromtion as $list) {
+            if($list->room_type_id == $request->sleRoomType && $list->start_date <= $request->txtStartDate
+                && $list->end_date >= $request->txtEndDate) {
                 return redirect()->back()->withErrors('Đang Tồn Tại Chương Trình Khuyến Mãi Với Loại Phòng Này');
             }
             
@@ -62,6 +63,7 @@ class PromotionController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
+    
     public function show($id)
     {
     
@@ -74,6 +76,7 @@ class PromotionController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
+    
     public function edit($id)
     {
         $promotion = Promotion::findOrFail($id);
@@ -88,15 +91,10 @@ class PromotionController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
+    
     public function update(PromotionRequest $request, $id)
     {
         $promotion = Promotion::findOrFail($id);
-        $allPromtion = Promotion::all();
-        foreach($allPromtion as $list){
-            if($list->room_type_id == $request-> sleRoomType && $list->start_date <= $request->txtStartDate && $list->end_date >= $request->txtEndDate ){
-                return redirect()->back()->withErrors('Đang Tồn Tại Chương Trình Khuyến Mãi Với Loại Phòng Này');
-            }
-        }
         $promotion->name = $request->txtName;
         $promotion->discount = $request->txtDiscount;
         $promotion->room_type_id = $request->sleRoomType;

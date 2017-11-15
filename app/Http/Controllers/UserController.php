@@ -46,7 +46,6 @@ class UserController extends Controller
         $user->active = $request->rdoActive;
         $user->save();
         return redirect()->back()->withSuccess('Tạo Nhân Viên Thành Công');
-        
     }
     
     /**
@@ -55,10 +54,10 @@ class UserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+//    public function show($id)
+//    {
+//        //
+//    }
     
     /**
      * Show the form for editing the specified resource.
@@ -83,18 +82,13 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->name = $request->txtName;
-        if($request->txtEmail != $user->email){
-            $this->validate($request,
-                [
-                    'txtEmail' => 'unique:users,email'
-                ], [
-                    'txtEmail.unique' => 'Địa Chỉ Email Đã Tồn Tại'
-                ]);
+        if ($request->txtEmail != $user->email) {
+            $this->validate($request, ['txtEmail' => 'unique:users,email'], ['txtEmail.unique' => 'Địa Chỉ Email Đã Tồn
+            Tại']);
         }
         $user->email = $request->txtEmail;
-        if($request->checkChangePassword == 'on') {
-            $this->validate($request,
-                [
+        if ($request->checkChangePassword == 'on') {
+            $this->validate($request, [
                     'txtPassword' => 'required',
                     'txtRePassword' => 'required|same:txtPassword'
                 ], [
@@ -110,12 +104,6 @@ class UserController extends Controller
         return redirect()->back()->withSuccess('Sửa Nhân Viên Thành Công');
     }
     
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $user = User::findOrFail($id);

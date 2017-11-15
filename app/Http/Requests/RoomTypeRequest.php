@@ -23,7 +23,7 @@ class RoomTypeRequest extends FormRequest
      */
     public function rules()
     {
-        if($this->method()=='POST'){
+        if ($this->method() =='POST') {
             return [
                 'txtName'=>'required',
                 'txtPrice'=>'required|min:6',
@@ -31,7 +31,7 @@ class RoomTypeRequest extends FormRequest
                 'txtDescription'=>'required',
                 'fImage'=>'required'
             ];
-        }elseif($this->method() == 'PUT'){
+        } elseif ($this->method() == 'PUT') {
             return [
                 'txtName'=>'required',
                 'txtPrice'=>'required|min:6',
@@ -39,9 +39,10 @@ class RoomTypeRequest extends FormRequest
                 'txtDescription'=>'required'
             ];
         }
-        
     }
-    public function messages(){
+    
+    public function messages()
+    {
         return[
             'txtName.required'=>'Chưa Nhập Tên Loại Phòng',
             'txtPrice.required'=>'Chưa Nhập Giá Phòng',
