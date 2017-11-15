@@ -49,7 +49,6 @@ class BookingController extends Controller
     {
         $booking = Booking::findOrFail($id);
         return view('admin.bookings.detail', compact('booking'));
-        
     }
     
     /**
