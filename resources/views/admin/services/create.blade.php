@@ -25,10 +25,20 @@
                             <input type="number" class="form-control" name="txtPrice" value="{{old('txtPrice')}}"/>
                         </div>
                         <div class="form-group">
-                            <label>Thông Báo (Nếu Có)</label>
-                            <textarea class="form-control" rows="3" name="txtNotification"></textarea>
+                            <label>Mô Tả :</label>
+                            <textarea class="form-control" rows="3" name="txtDescription"></textarea>
                         </div>
-                        
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label class="label-inline">
+                                    <input type="radio" name="rdoStatus" value="1"> Đang Hoạt Động
+                                </label>
+                                <label class="label-inline">
+                                    <input type="radio" name="rdoStatus" value="2"> Bảo Trì
+                                </label>
+                            </div>
+                           
+                        </div>
                       
                         <button type="submit" class="btn btn-default">Thêm Dịch Vụ</button>
                         <button type="reset" class="btn btn-default">Làm Mới</button>

@@ -39,7 +39,6 @@
                         <div class="form-group">
                             <label>Trạng Thái Phòng</label>
                             <div class="form-control">
-    
                                 <label class="radio-inline">
                                     <input name="rdoStatus" value="1" checked="" type="radio">Phòng Trống
                                 </label>
@@ -47,10 +46,9 @@
                                     <input name="rdoStatus" value="2" type="radio">Phòng Đã Đặt
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="rdoStatus" value="2" type="radio">Phòng Đang Sử Dụng
+                                    <input name="rdoStatus" value="3" type="radio">Phòng Đang Sử Dụng
                                 </label>
                             </div>
-                           
                         </div>
                         <button type="submit" class="btn btn-default">Thêm Phòng</button>
                         <button type="reset" class="btn btn-default">Làm Mới</button>

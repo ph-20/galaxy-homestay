@@ -32,7 +32,7 @@
                             <td>{{$list->name}}</td>
                             <td>{{number_format($list->price,0,",",".") }} Vnđ</td>
                             <td>{{$list->description}}</td>
-                            <td>@if($list->status == 1) Đang Hoạt Động @else Không Hoạt Động @endif</td>
+                            <td>@if($list->status == 1) Đang Hoạt Động @else Bảo Trì @endif</td>
                             <td class="center">
                                 <form action="{{route('service.destroy',$list->id)}}" method="POST">
                                     {{csrf_field()}}
