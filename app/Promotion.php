@@ -9,7 +9,7 @@ class Promotion extends Model
     protected $table = 'promotions';
     
     
-    public function room_types()
+    public function roomTypes()
     {
         return $this->belongsTo('App\RoomType', 'room_type_id', 'id');
     }
