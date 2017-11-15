@@ -41,7 +41,7 @@ class RoomRequest extends FormRequest
         return[
             'txtName.required'=>'Chưa Nhập Mã Số Phòng',
             'txtDescription.required'=>'Chưa Nhập Mô Tả Phòng',
-            'fImage.required'=>'Chưa Chọn Hình Ảnh'
+            'fImage.required'=>'Chưa Chọn Hình Ảnh',
         ];
     }
 }
