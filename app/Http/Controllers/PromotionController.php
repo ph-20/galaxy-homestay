@@ -41,12 +41,11 @@ class PromotionController extends Controller
     {
         $promotion = new Promotion();
         $allPromtion = Promotion::all();
-        foreach($allPromtion as $list) {
-            if($list->room_type_id == $request->sleRoomType && $list->start_date <= $request->txtStartDate
+        foreach ($allPromtion as $list) {
+            if ($list->room_type_id == $request->sleRoomType && $list->start_date <= $request->txtStartDate
                 && $list->end_date >= $request->txtEndDate) {
                 return redirect()->back()->withErrors('Đang Tồn Tại Chương Trình Khuyến Mãi Với Loại Phòng Này');
             }
-            
         }
         $promotion->name = $request->txtName;
         $promotion->discount = $request->txtDiscount;
@@ -64,11 +63,10 @@ class PromotionController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function show($id)
-    {
-    
-    
-    }
+//    public function show($id)
+//    {
+//
+//    }
     
     /**
      * Show the form for editing the specified resource.
