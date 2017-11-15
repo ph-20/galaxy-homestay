@@ -78,6 +78,13 @@ class UserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->back()->withSuccess('Xóa Nhân Viên Thành Công');
+    }
+    
     public function update(UserRequest $request, $id)
     {
         $user = User::findOrFail($id);
@@ -104,10 +111,4 @@ class UserController extends Controller
         return redirect()->back()->withSuccess('Sửa Nhân Viên Thành Công');
     }
     
-    public function destroy($id)
-    {
-        $user = User::findOrFail($id);
-        $user->delete();
-        return redirect()->back()->withSuccess('Xóa Nhân Viên Thành Công');
-    }
 }
