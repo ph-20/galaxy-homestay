@@ -22,8 +22,6 @@
                         <th>Giá</th>
                         <th>Mô Tả</th>
                         <th>Trạng Thái</th>
-                        <th>Xóa</th>
-                        <th>Sửa</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -44,19 +42,8 @@
                                     Phòng Đang Sử Dụng
                                 @endif
                             </td>
-                            <td class="center">
-                                <form action="{{route('room.destroy',$list->id)}}" method="POST">
-                                    {{csrf_field()}}
-                                    {{method_field('DELETE')}}
-                                    <button class="btn btn-danger" style="padding: 2px"> <i class="fa fa-trash-o  fa-fw"></i></button>
-        
-                                </form>
-    
-                            </td>
-                            <td class="center"> <a style="padding: 2px" class="btn btn-warning" href="{{url('admin/room/'.$list->id.'/edit')}}"><i class="fa fa-pencil fa-fw"></i></a></td>
                         </tr>
                     @endforeach
-                   
                     </tbody>
                 </table>
             </div>

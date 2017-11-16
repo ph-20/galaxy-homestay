@@ -25,7 +25,7 @@ class RoomRequest extends FormRequest
     {
         if ($this->method() == 'POST') {
             return [
-                'txtName'=>'required',
+                'txtName'=>'required|unique:rooms,room_code',
                 'txtDescription'=>'required',
                 'fImage'=>'required'
             ];
@@ -41,6 +41,7 @@ class RoomRequest extends FormRequest
     {
         return[
             'txtName.required'=>'Chưa Nhập Mã Số Phòng',
+            'txtName.unique'=>'Mã Số Phòng Đã Tồn Tại',
             'txtDescription.required'=>'Chưa Nhập Mô Tả Phòng',
             'fImage.required'=>'Chưa Chọn Hình Ảnh',
         ];

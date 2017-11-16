@@ -19,7 +19,7 @@
                         <div class="form-group">
                             <label >Hình Ảnh Cũ :</label>
                             <br>
-                            <img width="500px" class="img-thumbnail" src="{{asset('image/'.$image->image)}}" >
+                            <img width="500px" class="img-thumbnail" src="{{asset('images/'.$image->image)}}" >
                         </div>
                         <div class="form-group">
                             <label>Hình Ảnh Mới:</label>
@@ -32,6 +32,9 @@
                             </label>
                             <label class="radio-inline">
                                 <input name="rdoStatus" value="2" @if($image->status == 2) checked @endif type="radio">Ảnh Chính
+                            </label>
+                            <label class="radio-inline">
+                                <input name="rdoStatus" value="3" @if($image->status == 3) checked @endif type="radio">Ảnh Thumbnail
                             </label>
                         </div>
                         <button type="submit" class="btn btn-default">Sửa Hình Ảnh</button>

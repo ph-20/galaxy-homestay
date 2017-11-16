@@ -87,6 +87,18 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
+                    <li>
+                        <a href="admin/statistic-revenue"><i class="fa fa-line-chart fa-fw"></i> Thống Kê Doanh Thu</a>
+                    {{--<ul class="nav nav-second-level">--}}
+                    {{--<li>--}}
+                    {{--<a href="admin/promotion">Danh Sách Chương Trình Khuyến Mãi</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                    {{--<a href="admin/promotion/create ">Thêm Chương Trình Khuyễn Mãi</a>--}}
+                    {{--</li>--}}
+                    {{--</ul>--}}
+                    <!-- /.nav-second-level -->
+                    </li>
                 @endif
                 @if(Auth::user()->role==3)
                     <li>
@@ -133,18 +145,7 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-                    <li>
-                        <a href="admin/statistic-revenue"><i class="fa fa-line-chart fa-fw"></i> Thống Kê Doanh Thu</a>
-                    {{--<ul class="nav nav-second-level">--}}
-                    {{--<li>--}}
-                    {{--<a href="admin/promotion">Danh Sách Chương Trình Khuyến Mãi</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                    {{--<a href="admin/promotion/create ">Thêm Chương Trình Khuyễn Mãi</a>--}}
-                    {{--</li>--}}
-                    {{--</ul>--}}
-                    <!-- /.nav-second-level -->
-                    </li>
+                   
                 @endif
                 {{--<li>--}}
                 {{--<a href="admin/promotion"><i class="fa fa-users fa-fw"></i> Chương Trình Khuyến Mãi<span class="fa arrow"></span></a>--}}

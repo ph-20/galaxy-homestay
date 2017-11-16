@@ -27,6 +27,9 @@
                             <label class="radio-inline">
                                 <input name="rdoStatus" value="2" type="radio">Ảnh Chính
                             </label>
+                            <label class="radio-inline">
+                                <input name="rdoStatus" value="3" type="radio">Ảnh Thumbnail
+                            </label>
                         </div>
                
                 <button type="submit" class="btn btn-default">Thêm Hình Ảnh</button>
