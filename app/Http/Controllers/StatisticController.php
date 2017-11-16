@@ -17,8 +17,10 @@ class StatisticController extends Controller
             $total = Booking::where('status', 4)->sum('total');
             return view('admin.statistic.revenue', compact('booking', 'total'));
         } else {
-            $booking = Booking::where('check_out', '>=', $startDate)->where('check_out', '<=', $endDate)->where('status', 4)->get();
-            $total = Booking::where('check_out', '>=', $startDate)->where('check_out', '<=', $endDate)->where('status', 4)->sum('total');
+            $booking = Booking::where('check_out', '>=', $startDate)->where('check_out', '<=', $endDate)
+                ->where('status', 4)->get();
+            $total = Booking::where('check_out', '>=', $startDate)->where('check_out', '<=', $endDate)
+                ->where('status', 4)->sum('total');
             return view('admin.statistic.revenue', compact('booking', 'startDate', 'endDate', 'total'));
         }
     }
